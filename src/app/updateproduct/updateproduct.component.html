@@ -1,0 +1,16 @@
+<form #f="ngForm">
+    <div class="form-group">
+        <label>Title</label>
+        <input #n="ngModel" placeholder="ex: clouds"  type="text" name="title" class="form-control" [(ngModel)]="produit.title" required>
+    </div>
+    <div class="alert alert-danger" *ngIf="n.invalid && n.touched">title is required</div>
+
+
+   
+    <div class="form-group">
+        <label>Price</label>
+        <input #p="ngModel" placeholder="ex:15"  type="number" name="price" class="form-control" [(ngModel)]="produit.price" required>
+    </div>
+    <button class="btn btn-success" type="button"  [disabled]="f.invalid" (click)="save()">save</button>
+</form>
+   

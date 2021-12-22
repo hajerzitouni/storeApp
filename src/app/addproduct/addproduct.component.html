@@ -1,0 +1,28 @@
+<form #f="ngForm">
+    <div class="form-group">
+        <label>Title</label>
+        <input #n="ngModel" placeholder="ex: clouds"  type="text" name="title" class="form-control" [(ngModel)]="produit.title" required>
+    </div>
+    <div class="alert alert-danger" *ngIf="n.invalid && n.touched">title is required</div>
+
+
+   
+    <div class="form-group">
+        <label>Price</label>
+        <input #p="ngModel" placeholder="ex:15"  type="number" name="price" class="form-control" [(ngModel)]="produit.price" required>
+    </div>
+    <div class="alert alert-danger" *ngIf="p.invalid && p.touched">price is required</div>
+    <div class="form-group">
+    <label class="image-upload-container btn btn-bwm">
+        <span>Select Image</span>
+        <input #imageInput
+               type="file"
+               accept="image/*"
+               (change)="processFile(imageInput)">
+    </label>
+    </div>
+</form>
+    <button class="btn btn-success" type="button"  [disabled]="f.invalid" (click)="add()">save</button>
+
+
+        
